@@ -4,5 +4,8 @@ AdvancedUGUI is a project that provides various convenience features for Unity's
 ## Introduction
 Unity's UGUI is a convenient and simple UI system, but sometimes additional features may be needed. AdvancedUGUI offers components that supplement the lacking features of UGUI and provide various convenience functionalities, allowing for richer and more diverse UI designs.
 
+## Usage
+For detailed usage instructions, please refer to the [wiki](https://github.com/novemberi/AdvancedUGUI/wiki).
+
 ## Contribution
 AdvancedUGUI is an open-source project and contributions are welcome! If you find a bug or have ideas for feature improvements, please create an [issue](https://github.com/novemberi/AdvancedUGUI/issues) or submit a [pull request](https://github.com/novemberi/AdvancedUGUI/pulls).
