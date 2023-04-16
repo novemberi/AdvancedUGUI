@@ -6,14 +6,16 @@ using UnityEngine.EventSystems;
 
 namespace AdvancedUGUI
 {
-    [RequireComponent(typeof(Button))]
-    public class AdvancedButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    [AddComponentMenu("UI/AdvancedUGUI/Click Extension")]
+    public class AdvancedClick : AdvancedUI, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        private bool isExit;
+        [SerializeField]
+        private float longPressDelay = 0.5f;
 
         private float timer = 0f;
-        private float delay = 1f;
         private Coroutine current;
+
+        private bool isExit;
 
         public UnityEvent onClick;
         public UnityEvent onLongClick;
@@ -35,8 +37,8 @@ namespace AdvancedUGUI
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (timer >= delay && !isExit) onLongClick?.Invoke();
-            else if (timer < delay && !isExit) onClick?.Invoke();
+            if (timer >= longPressDelay && !isExit) onLongClick?.Invoke();
+            else if (timer < longPressDelay && !isExit) onClick?.Invoke();
             StopCoroutine(current);
         }
 
