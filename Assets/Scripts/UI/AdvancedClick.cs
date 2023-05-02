@@ -18,6 +18,8 @@ namespace AdvancedUGUI
         private bool isExit;
 
         public UnityEvent onClick;
+        public UnityEvent onRightClick;
+        public UnityEvent onMiddleClick;
         public UnityEvent onLongClick;
 
         private IEnumerator Action()
@@ -37,8 +39,19 @@ namespace AdvancedUGUI
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (timer >= longPressDelay && !isExit) onLongClick?.Invoke();
-            else if (timer < longPressDelay && !isExit) onClick?.Invoke();
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                if (timer >= longPressDelay && !isExit) onLongClick?.Invoke();
+                else if (timer < longPressDelay && !isExit) onClick?.Invoke();
+            }
+            else if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                if (!isExit) onRightClick?.Invoke();
+            }
+            else
+            {
+                if (!isExit) onMiddleClick?.Invoke();
+            }
             StopCoroutine(current);
         }
 
