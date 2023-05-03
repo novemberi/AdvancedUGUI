@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 namespace AdvancedUGUI
 {
     [AddComponentMenu("UI/AdvancedUGUI/Click Extension")]
-    public class AdvancedClick : AdvancedUI, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    public class AdvancedClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField]
         private float longPressDelay = 0.5f;
